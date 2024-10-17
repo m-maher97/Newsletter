@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="stylesheet" href="Style.css">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Your existing CSS here... */
+
+    /* Hides the success message by default */
+    .succesmessage {
+      display: none;
+    }
+  </style>
+
+</head>
+<body>
+  <!-- Sign-up form start -->
+  <div class="card">
+    <div class="contentright">
+      <h1>Stay updated!</h1>
+      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+      <div class="icon1">
+        <img src="icon-list.svg" alt="Icon"> Product discovery and building what matters
+      </div>
+      <div class="icon2">
+        <img src="icon-list.svg" alt="Icon"> Measuring to ensure updates are a success
+      </div>
+      <div class="icon3">
+        <img src="icon-list.svg" alt="Icon"> And much more!
+      </div>
+      <div class="error">
+        <label for="email">Email address</label>
+        <p class="error">Enter a valid email</p>
+        <form id="signupForm">
+          <input type="email" id="email" placeholder="ex@gmail.com">
+          <button type="submit" class="btn_Subscribe">Subscribe to monthly newsletter</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="contentleft">
+      <img src="illustration-sign-up-desktop.svg" alt="Sign-up Illustration">
+    </div>
+  </div>
+
+  <!-- Success message -->
+  <div class="succesmessage">
+    <img src="icon-success.svg" alt="Success Icon">
+    <h2>Thanks for subscribing!</h2>
+    <p>A confirmation email has been sent to ash@loremcompany.com. Please open it and click the button inside to confirm your subscription.</p>
+    <button type="button" class="btn_dismiss">Dismiss message</button>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/m-maher97">Maher</a>.
+  </div>
+
+  <script>
+    // JavaScript to handle form submission
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+      event.preventDefault();  // Prevent the default form submission
+
+      // Hide the form
+      document.querySelector(".card").style.display = "none";
+
+      // Show the success message
+      document.querySelector(".succesmessage").style.display = "block";
+    });
+
+    // Handle the Dismiss button click
+    document.querySelector(".btn_dismiss").addEventListener("click", function() {
+      // You can reload the page or reset the form and hide the success message
+      document.querySelector(".succesmessage").style.display = "none";
+      document.querySelector(".card").style.display = "flex";  // Show the form again if needed
+    });
+  </script>
+</body>
+</html>

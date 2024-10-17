@@ -1,0 +1,240 @@
+:root{
+    --primary-color: hsl(4, 100%, 67%);
+    --dark:hsl(234, 29%, 20%);
+    --black:hsl(235, 18%, 26%);
+    --gery:hsl(231, 7%, 60%);
+    --white:hsl(0, 0%, 100%);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--black);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    max-width: 960px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    flex-direction: row; /* Side-by-side layout on larger screens */
+    margin-bottom: 10px;
+}
+
+.contentleft {
+    width: 40%;
+    order: 1; /* Default order for larger screens */
+}
+
+.contentleft img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.contentright {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 1rem;
+}
+
+.icon1, .icon2, .icon3 {
+    display: flex;
+    align-items: stretch;
+    padding: 10px;
+}
+
+.icon1 img, .icon2 img, .icon3 img {
+    padding-right: 5px;
+}
+
+.contentright h2 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin: 1rem 0;
+}
+
+.contentright p {
+    font-size: 1rem;
+    color: var(--dark);
+    margin: 1rem 0;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    max-width: 300px;
+}
+
+.error p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.card input {
+    width: 100%;
+    outline: none;
+    margin: 0.5rem 0;
+    padding: 0.9rem 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--dark);
+    font-size: 1rem;
+}
+
+.card button {
+    outline: none;
+    border: none;
+    margin: 1rem 0;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 0.9rem;
+    padding: 0.9rem 0;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.card button:active {
+    transform: scale(0.98rem);
+}
+
+.card button:hover {
+    background-color: var(--primary-color);
+}
+
+/* Success message styles */
+.succesmessage {
+    display: none; /* Hidden by default */
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out; /* Optional: Add a fade-in effect */
+}
+
+.succesmessage img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.succesmessage h2 {
+    font-size: 2rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.succesmessage p {
+    font-size: 1rem;
+    color: var(--gery);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.succesmessage button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.succesmessage button:hover {
+    background-color: hsl(4, 90%, 60%);
+}
+.attribution{
+    color: var(--white);
+    margin-bottom: 10px;
+}
+/* Optional animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column; /* Stack content on mobile */
+        max-width: 60%;
+    }
+
+    .contentleft {
+        width: 100%; /* Full width for contentleft */
+        order: -1; /* Change order to display first */
+    }
+     .contentleft img{
+        object-fit: fill;
+        max-height: 400px;
+
+     }
+
+
+    .contentright {
+        width: 100%; /* Full width for contentright */
+    }
+
+    .contentright h2 {
+        font-size: 2rem;
+    }
+
+    .contentright p {
+        font-size: 0.9rem;
+    }
+
+    .card input, .card button {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    .succesmessage {
+        padding: 2rem;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contentright h2 {
+        font-size: 1.5rem;
+    }
+
+    .contentright p {
+        font-size: 0.8rem;
+    }
+}
